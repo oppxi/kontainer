@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pai Pai Login</title>
+    <!-- CSS Particles.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.css">
+    <style>
+        /* Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4b2db6de; /* Black background for particles */
+            color: white;
+            overflow: hidden; /* Remove scroll */
+            position: relative; /* For the footer */
+        }
+        /* Container particles */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place particles behind content */
+        }
+        /* Styling for loader */
+        .loader-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(219, 11, 11, 0.2);
+            z-index: 1; /* Placing the loader on top of the particle */
+        }
+        /* Rainbow text animation */
+        .loader-container h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            animation: rainbow-text 4s linear infinite; /* Rainbow text animation */
+        }
+        /* Keyframes for rainbow text */
+        @keyframes rainbow-text {
+            0% {
+                color: red;
+            }
+            14% {
+                color: orange;
+            }
+            28% {
+                color: yellow;
+            }
+            42% {
+                color: green;
+            }
+            56% {
+                color: blue;
+            }
+            70% {
+                color: indigo;
+            }
+            84% {
+                color: violet;
+            }
+            100% {
+                color: red;
+            }
+        }
+        .loader-container input[type="password"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+            color: white;
+            font-size: 1rem;
+        }
+        .loader-container input[type="password"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .loader-container button {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 10000%; /* Make the gradient bigger to make the animation look smoother */
+            color: rgb(0, 0, 0); /* Default text color, will be overridden by animation */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.01s ease; /* Additional hover animations */
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+            animation: rainbow 2s linear infinite; /* Rainbow animation */
+        }
+        /* Keyframes animation for rainbow box */
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        /* Styling for main content */
+        .main-content {
+            display: none;
+            text-align: center;
+        }
+        .main-content h1 {
+            color: #ffcc00; /* Warna emas */
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+        }
+        .main-content p {
+            color: white;
+            font-size: 1.2rem;
+        }
+        /* Footer with rolling text */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 25;
+            width: 25%;
+            background-color: rgba(201, 187, 187, 0.171); /* Semi-transparent background */
+            color: rgb(236, 141, 141);
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 3px 0;
+            overflow: hidden;
+            z-index: 3; /* Ensure it stays above other elements */
+        }
+        footer span {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%; /* Start off-screen */
+            animation: roll-text 10s linear infinite; /* Rolling animation */
+        }
+        /* Keyframes for rolling text */
+        @keyframes roll-text {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container articles -->
+    <div id="particles-js"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <h1>Login</h1>
+        <input type="password" id="password" placeholder="Enter your fuckin password man!">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <h1>Welcome!</h1>
+        <p id="random-text">Anda berjaya login.</p>
+        <!-- Gambar atau GIF -->
+        <img src="133284.gif" alt="Selamat Datang" style="max-width: 100%; height: auto;">
+    </div>
+    <!-- Footer -->
+    <footer>
+        <span>====| Credit By: OPPXI |====</span>
+    </footer>
+    <!-- JavaScript Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Particle Initialization
+        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/demo/particles.json', function() {
+            console.log('The particle was successfully loaded.');
+        });
+        // Function to check passwords
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = "123"; // Correct passphrase
+            if (password === correctPassword) {
+                // Hide loader
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                // Run random text animation
+                animateRandomText("random-text", "You have successfully logged in.");
+            } else {
+                alert("Wrong password! Please try again.");
+            }
+        }
+        // List of random characters to be used to replace text
+        const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        // Function to generate random text of a certain length
+        function generateRandomText(length) {
+            let result = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * randomChars.length);
+                result += randomChars[randomIndex];
+            }
+            return result;
+        }
+        // Main function for random text animation
+        function animateRandomText(elementId, originalText, duration = 800) {
+            const element = document.getElementById(elementId);
+            const originalLength = originalText.length;
+            let interval;
+            // Phase 1: Convert text to random characters
+            let randomPhaseDuration = duration / 2; // Half the total duration
+            let startTime = Date.now();
+            interval = setInterval(() => {
+                const elapsedTime = Date.now() - startTime;
+                if (elapsedTime >= randomPhaseDuration) {
+                    clearInterval(interval);
+                    restoreOriginalText();
+                } else {
+                    element.textContent = generateRandomText(originalLength);
+                }
+            }, 50); // Change every 50ms
+            // Phase 2: Revert to original text
+            function restoreOriginalText() {
+                let restoreStartTime = Date.now();
+                let restoreInterval = setInterval(() => {
+                    const elapsedTime = Date.now() - restoreStartTime;
+                    if (elapsedTime >= randomPhaseDuration) {
+                        clearInterval(restoreInterval);
+                        element.textContent = originalText; // Revert to original text
+                    } else {
+                        element.textContent = generateRandomText(originalLength);
+                    }
+                }, 50); // Change every 50ms
+            }
+        }
+    </script>
+</body>
+</html>

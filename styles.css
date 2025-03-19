@@ -1,0 +1,17 @@
+#random-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 2px;
+    animation: flicker 0.5s infinite alternate;
+}
+
+/* Flicker effect animation to give the impression of text changing */
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
